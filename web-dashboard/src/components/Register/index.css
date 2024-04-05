@@ -142,3 +142,11 @@ input[type=number] {
     text-decoration: none;
     color: #007991;
 }
+
+.register-select {
+    padding: 1rem 2rem;
+    border: 1px solid gray;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+}

@@ -1,11 +1,12 @@
 import React from 'react'
 import './index.css'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   return (
     <>
       <div id='home'>
-        <a href="/register" className='get-started-link'><button className='get-started'>Get Started</button></a>
+        <Link to="/register" className='get-started-link'><button className='get-started'>Get Started</button></Link>
       </div>
     </>
   )

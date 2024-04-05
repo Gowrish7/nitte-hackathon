@@ -9,17 +9,49 @@ const Login = () => {
 
   const [userData, setUserData] = useState({
     email: '',
-    mobileNumber: '',
     password: '',
-    rePassword: ''
   })
 
   const [message, setMessage] = useState('')
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault()
 
-    navigate('/admindashboard')
+
+    const response = await fetch(
+      "http://localhost:5001/api/user/login",
+      {
+        method: "POST",
+        headers: {
+          Accept: "Application/json",
+          "Content-Type": "Application/json",
+        },
+        body: JSON.stringify({
+          ...userData,
+        }),
+      }
+    )
+
+    const data = await response.json()
+
+    if (data.status === 200) {
+      setMessage(data.message + '... Redirecting ...')
+
+      let url = ''
+      if (data.data.type === 'admin')
+        url = '/admindashboard'
+      if (data.data.type === 'user')
+        url = '/userdashboard'
+      if (data.data.type === 'driver')
+        url = '/driverdashboard'
+
+      localStorage.setItem("userId", data.data._id)
+      setTimeout(() => {
+        navigate(url)
+      }, 3000)
+    } else {
+      setMessage(data.message)
+    }
   }
 
   return (
