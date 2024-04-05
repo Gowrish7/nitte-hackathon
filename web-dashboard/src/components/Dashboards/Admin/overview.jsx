@@ -1,39 +1,45 @@
-// Card.js
-
 import React from 'react';
-import './Card.css';
+import './overview.css';
 
-const Card = ({ title, totaldriver, totalcustomer, ongoingfleet }) => {
+const Overview = ({  totaldriver, totalcustomer, ongoingfleet }) => {
     return (
-        <>
-            <div className="overview-total">
-                <h3>overview</h3>
+        <div className='overview-container'>
+
             <div className="overview">
                 <div className="card">
-                    <img alt={title} />
-                    <div className="card-content">
+                    {/* <IoIosPerson /> */}
+                    <div className="card-content1">
                         <h3>Total Drivers</h3>
-                        <p>{totaldriver}</p>
+                        <p>3</p>
                     </div>
                 </div>
                 <div className="card">
-                    <img alt={title} />
-                    <div className="card-content">
+                    {/* <img alt={title} /> */}
+                    <div className="card-content2">
                         <h3>Customers</h3>
-                        <p>{totalcustomer}</p>
+                        <p>354</p>
                     </div>
                 </div>
                 <div className="card">
-                    <img alt={title} />
-                    <div className="card-content">
+                    {/* <img alt={title} /> */}
+                    <div className="card-content3">
                         <h3>On going Fleets</h3>
-                        <p>{ongoingfleet}</p>
+                        <p>5</p>
                     </div>
                 </div>
             </div>
+            <div className="charts">
+                
+            </div>
+            <div className="contents-driver">
+            </div>
+            <div className="location-details">
+                <div>driver details</div>
+                <div>driver details</div>
+            </div>
+
         </div>
-        </>
     );
 }
 
-export default Card;
+export default Overview;
