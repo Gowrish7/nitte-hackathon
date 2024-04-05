@@ -1,27 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './index.css'
 
 import { GrOverview } from "react-icons/gr"
-import { FaHistory } from "react-icons/fa"
-import { IoIosAlert } from "react-icons/io"
-import { FaUserGroup, FaLocationDot, FaRegAddressCard, FaClipboardUser } from "react-icons/fa6"
-import { TbListDetails } from "react-icons/tb"
-import { ImSleepy2 } from "react-icons/im"
-import { RiEmotionNormalFill } from "react-icons/ri"
-import { BsSpeedometer } from "react-icons/bs"
-import { GiDistraction } from "react-icons/gi"
-import { VscHistory } from "react-icons/vsc"
+import { FaRegCircleUser } from "react-icons/fa6"
+
+import { Link, } from 'react-router-dom'
 
 const Notifications = () => {
+
+  const [activeDrivers, setActiveDrivers] = useState([])
+
+  useEffect(() => {
+    setActiveDrivers([{ drivername: 'Joseph', link: 'joseph@gmail.com' },
+    { drivername: 'Drew Cano', link: 'drewcano@gmail.com' }])
+  }, [])
+
   return (
     <>
-      <div className='notif-container'>
+      <div className='admin-notif-container'>
         <div className='admin-notif-container'>
-          <h3 className='admin-notif-heading'>Dashboards</h3>
-          <p className='admin-notif-link'><GrOverview />Overview</p>
-          <p className='admin-notif-link'><FaHistory />Driver History</p>
-          <p className='admin-notif-link'><IoIosAlert />Biddings</p>
-          <p className='admin-notif-link'><FaUserGroup />Customers</p>
+          <h3 className='admin-notif-heading'>Notifications</h3>
+          <p className='admin-notif-link'><GrOverview />Somebody Just accepted</p>
+        </div>
+        <div className='admin-notif-container'>
+          <h3 className='admin-notif-heading'>Contacts</h3>
+          {activeDrivers.map((driver, key) => {
+            return (
+              <Link className='admin-notif-link' to='#' key={key}><FaRegCircleUser />{driver.drivername}</Link>
+            )
+          })}
         </div>
       </div>
     </>
