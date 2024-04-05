@@ -1,8 +1,9 @@
 import React from 'react'
-
+import Overview from './overview'
 const AdminDashboard = () => {
   return (
-    <div>AdminDashboard</div>
+    <div>  <Overview /></div>
+
   )
 }
 
