@@ -1,0 +1,6 @@
+.notif-container {
+    display: flex;
+    gap: 1rem;
+    width: 15vw;
+
+}
